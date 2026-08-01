@@ -25,17 +25,15 @@
             flex-direction: column;
             align-items: center;
         }
-        /* الشعار العلوي الدائري للهلال الأحمر */
         .top-logo {
-            width: 130px;
+            width: 120px;
             height: auto;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
         .form-box {
             width: 100%;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
-        /* حواف باللون الأحمر الرسمي المنسق */
         .red-input, .red-textarea {
             width: 100%;
             padding: 14px;
@@ -51,7 +49,7 @@
         }
         .red-textarea {
             resize: vertical;
-            height: 140px;
+            height: 130px;
         }
         select.red-input {
             cursor: pointer;
@@ -62,7 +60,6 @@
             background-repeat: no-repeat;
             background-position: left 10px center;
         }
-        /* زر الإرسال المدمج والأنيق بالتنسيق المتناسق */
         .btn-send {
             width: 100%;
             background-color: #d9534f;
@@ -76,27 +73,25 @@
             transition: background-color 0.2s;
             box-shadow: 0 4px 10px rgba(217, 83, 79, 0.2);
             text-align: center;
-            margin-top: 5px;
         }
         .btn-send:hover {
             background-color: #c9302c;
         }
-        /* حاوية الشعارات السفلية الموزعة أفقياً بالتطابق مع الصورة */
         .footer-logos {
             width: 100%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 40px;
+            margin-top: 35px;
             padding-top: 15px;
             border-top: 1px dashed #dddddd;
         }
         .bottom-logo-left {
-            height: 65px;
+            height: 55px;
             width: auto;
         }
         .bottom-logo-right {
-            height: 75px;
+            height: 65px;
             width: auto;
         }
     </style>
@@ -104,13 +99,10 @@
 <body>
 
 <div class="main-card">
-    <!-- 🔴 1. الشعار الرئيسي العلوي مع ميزة كسر كاش السيرفر الحتمية (?v=2) -->
-    <img src="https://ibb.co" class="top-logo" alt="شعار الهلال الأحمر العربي السوري">
+    <!-- 🔴 1. الشعار العلوي الدائري محقون كـ كود نصي مستقل ومحمي 100% من الحظر -->
+    <img src="data:image/svg+xml;utf8,<svg xmlns='http://w3.org' viewBox='0 0 100 100' width='100' height='100'><circle cx='50' cy='50' r='46' fill='none' stroke='%23d9534f' stroke-width='4'/><path d='M50,15 A35,35 0 0,0 50,85 A28,28 0 0,1 50,15 Z' fill='%23d9534f'/><text x='50' y='96' font-family='Segoe UI, Tahoma' font-size='6' font-weight='bold' fill='%23333' text-anchor='middle'>الهلال الأحمر العربي السوري</text></svg>" class="top-logo" alt="SARC">
     
-    <!-- فورم الإرسال البرمجي الموجه لملف الترحيل -->
     <form action="submit_complaint.php" method="POST" style="width: 100%;">
-        
-        <!-- الصندوق الأحمر الأول: اختيار القسم -->
         <div class="form-box">
             <select name="clinic" class="red-input" required>
                 <option value="" disabled selected>يرجى اختيار العيادة أو القسم المعني...</option>
@@ -127,22 +119,20 @@
             </select>
         </div>
         
-        <!-- الصندوق الأحمر الثاني: نص المقترح أو الشكوى -->
         <div class="form-box">
             <textarea name="complaint_text" class="red-textarea" placeholder="يرجى كتابة مقترحك أو تفاصيل الشكوى بصدق وسرية هنا..." required></textarea>
         </div>
         
-        <!-- الصندوق الأحمر الثالث الحاسم: زر الإرسال المتناسق -->
         <button type="submit" class="btn-send">🚀 إرسال المقترح / الشكوى بصفة سرية</button>
     </form>
     
-    <!-- 🔴 2. الشعارات السفلية مع ميزة كسر كاش السيرفر الحتمية (?v=2) -->
+    <!-- 🔴 2. الشعارات السفلية التأسيسية محقونة ومحمية داخلياً كأكواد رسومية فائقة النقاوة (Vector SVG) -->
     <div class="footer-logos">
-        <!-- شعار معاً من أجل الإنسانية في اليمين -->
-        <img src="https://ibb.co" class="bottom-logo-left" alt="معاً من أجل الإنسانية">
+        <!-- شعار الهلال والنواة الإنسانية المطور والمحمي -->
+        <img src="data:image/svg+xml;utf8,<svg xmlns='http://w3.org' viewBox='0 0 80 60' width='80' height='60'><path d='M25,15 A20,20 0 0,0 25,50 A16,16 0 0,1 25,15 Z' fill='%23d9534f'/><circle cx='55' cy='32' r='10' fill='none' stroke='%23333' stroke-width='2'/><line x1='55' y1='15' x2='55' y2='22' stroke='%23333' stroke-width='2'/><line x1='55' y1='42' x2='55' y2='50' stroke='%23333' stroke-width='2'/><text x='55' y='58' font-family='Segoe UI' font-size='6' fill='%23666' text-anchor='middle'>الإنسانية</text></svg>" class="bottom-logo-left" alt="Humanity">
         
-        <!-- شعار ومستمرون بالإنسانية - 82 عاماً في اليسار -->
-        <img src="https://ibb.co" class="bottom-logo-right" alt="مستمرون بالإنسانية 82 عاماً">
+        <!-- شعار ومستمرون بالإنسانية - 82 عاماً محقون داخلياً -->
+        <img src="data:image/svg+xml;utf8,<svg xmlns='http://w3.org' viewBox='0 0 100 60' width='100' height='60'><rect x='5' y='10' width='90' height='40' rx='5' fill='none' stroke='%23d9534f' stroke-width='1.5' stroke-dasharray='3,3'/><text x='50' y='30' font-family='Segoe UI, Tahoma' font-size='11' font-weight='bold' fill='%23d9534f' text-anchor='middle'>82 عاماً</text><text x='50' y='44' font-family='Segoe UI, Tahoma' font-size='8' fill='%23333' text-anchor='middle'>ومستمرون بالإنسانية</text></svg>" class="bottom-logo-right" alt="82 Years">
     </div>
 </div>
 
