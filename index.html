@@ -29,7 +29,16 @@
         .top-logo {
             width: 130px;
             height: auto;
-            margin-bottom: 30px;
+            margin-bottom: 15px;
+        }
+        /* 🔴 التنسيق الفخم للعبارة الرسمية الجديدة تحت الشعار مباشرة */
+        .clinic-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #d9534f;
+            text-align: center;
+            margin-bottom: 25px;
+            line-height: 1.5;
         }
         .form-box {
             width: 100%;
@@ -104,8 +113,13 @@
 <body>
 
 <div class="main-card">
-    <!-- 🔴 1. قراءة الشعار الرئيسي العلوي محلياً من ملف السيرفر مباشرة -->
+    <!-- 🔴 1. الشعار الرئيسي العلوي محلياً من ملف السيرفر مباشرة -->
     <img src="top-logo.png" class="top-logo" alt="شعار الهلال الأحمر العربي السوري">
+    
+    <!-- 🔴 2. العبارة الرسمية المخصصة لمستوصف شطحة تحت الشعار مباشرة بحسب طلبك -->
+    <div class="clinic-title">
+        شكاوي الهلال الأحمر العربي السوري<br>مستوصف شطحة
+    </div>
     
     <!-- فورم الإرسال البرمجي الموجه لملف الترحيل -->
     <form action="submit_complaint.php" method="POST" style="width: 100%;">
@@ -133,10 +147,10 @@
         </div>
         
         <!-- الصندوق الأحمر الثالث الحاسم: زر الإرسال المتناسق -->
-        <button type="submit" class="btn-send"> إرسال المقترح / الشكوى بصفة سرية</button>
+        <button type="submit" class="btn-send">🚀 إرسال المقترح / الشكوى بصفة سرية</button>
     </form>
     
-    <!-- 🔴 2. قراءة الشعارات السفلية التأسيسية محلياً بالتطابق التام والجودة الفائقة -->
+    <!-- 🔴 3. قراءة الشعارات السفلية التأسيسية محلياً بالتطابق التام والجودة الفائقة -->
     <div class="footer-logos">
         <!-- شعار Together for humanity معاً من أجل الإنسانية في اليمين -->
         <img src="humanity-logo.png" class="bottom-logo-left" alt="معاً من أجل الإنسانية">
