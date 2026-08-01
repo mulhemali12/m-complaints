@@ -124,11 +124,11 @@
     <div class="clinic-title">شكاوي الهلال الأحمر العربي السوري<br>مستوصف شطحة</div>
     
     <!-- 🔴 ملاحظة هندسية حاسمة: تأكد من استبدال المسار أدناه برابط نموذج جوجل الفعلي الخاص بك المنتهي بـ formResponse 🔴 -->
-    <form id="complaintForm" action="https://docs.google.com/forms/d/e/1FAIpQLSfiQ5PWS7gzOPU0kIdu2TDPX-RqfND9hdlyv39ecDGikp45rw/viewform?usp=pp_url&entry.1707878490=%D8%A7%D9%84%D8%AE%D9%8A%D8%A7%D8%B1+%D8%B1%D9%82%D9%85+1&entry.619253759=2&entry.126872698=3" method="POST" target="hidden_iframe" onsubmit="handleFormSubmit(event)" style="width: 100%;">
+    <form id="complaintForm" action="https://docs.google.com/forms/u/0/d/1x-0ncPCwURfhHDyLy7AJ1fw3gQQzUICSMvlR-QByGi0/prefill" method="POST" target="hidden_iframe" onsubmit="handleFormSubmit(event)" style="width: 100%;">
         
         <div class="form-box">
             <!-- 🔴 غير الـ name ليتطابق مع الـ entry.xxxx الخاص بالقسم في نموذجك 🔴 -->
-            <select name="1" id="clinicSelect" class="red-input" onchange="updateStaffList()" required>
+            <select name="entry.1707878490" id="clinicSelect" class="red-input" onchange="updateStaffList()" required>
                 <option value="" disabled selected>يرجى اختيار العيادة أو القسم المعني...</option>
                 <option value="استقبال">قسم الاستقبال والتسجيل</option>
                 <option value="صيدلية">قسم الصيدلية وصرف الأدوية</option>
@@ -141,14 +141,14 @@
         
         <div class="form-box staff-box" id="staffContainer">
             <!-- 🔴 غير الـ name ليتطابق مع الـ entry.xxxx الخاص باسم الموظف في نموذجك 🔴 -->
-            <select name="2" id="staffSelect" class="red-input">
+            <select name="xMZTse" id="staffSelect" class="red-input">
                 <!-- يتم شحن الأسماء عبر الجافا سكريبت بالأسفل -->
             </select>
         </div>
         
         <div class="form-box">
             <!-- 🔴 غير الـ name ليتطابق مع الـ entry.xxxx الخاص بنص الشكوى في نموذجك 🔴 -->
-            <textarea name="3" class="red-textarea" placeholder="يرجى كتابة مقترحك أو تفاصيل الشكوى بصدق وسرية هنا..." required></textarea>
+            <textarea name="W85ice" class="red-textarea" placeholder="يرجى كتابة مقترحك أو تفاصيل الشكوى بصدق وسرية هنا..." required></textarea>
         </div>
         
         <button type="submit" class="btn-send"> إرسال المقترح / الشكوى بصفة سرية</button>
