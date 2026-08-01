@@ -35,7 +35,7 @@
             width: 100%;
             margin-bottom: 25px;
         }
-        /* 🔴 تم تحويل الحواف إلى اللون الأحمر الرسمي المنسق تماماً بحسب طلبك */
+        /* حواف باللون الأحمر الرسمي المنسق */
         .red-input, .red-textarea {
             width: 100%;
             padding: 14px;
@@ -80,7 +80,6 @@
         }
         .btn-send:hover {
             background-color: #c9302c;
-            border-color: #c9302c;
         }
         /* حاوية الشعارات السفلية الموزعة أفقياً بالتطابق مع الصورة */
         .footer-logos {
@@ -105,13 +104,13 @@
 <body>
 
 <div class="main-card">
-    <!-- 🔴 الشعار الرئيسي في الأعلى بحسب الصورة المرفقة -->
-    <img src="https://wikimedia.org" class="top-logo" alt="شعار الهلال الأحمر العربي السوري">
+    <!-- 🔴 1. الشعار الرئيسي العلوي يعمل حياً ومفتوحاً من سيرفر خفيف محمي -->
+    <img src="https://ibb.co" class="top-logo" alt="شعار الهلال الأحمر العربي السوري">
     
     <!-- فورم الإرسال البرمجي الموجه لملف الترحيل -->
     <form action="submit_complaint.php" method="POST" style="width: 100%;">
         
-        <!-- 🔴 الصندوق الأحمر الأول: اختيار القسم -->
+        <!-- الصندوق الأحمر الأول: اختيار القسم -->
         <div class="form-box">
             <select name="clinic" class="red-input" required>
                 <option value="" disabled selected>يرجى اختيار العيادة أو القسم المعني...</option>
@@ -128,22 +127,22 @@
             </select>
         </div>
         
-        <!-- 🔴 الصندوق الأحمر الثاني: نص المقترح أو الشكوى -->
+        <!-- الصندوق الأحمر الثاني: نص المقترح أو الشكوى -->
         <div class="form-box">
             <textarea name="complaint_text" class="red-textarea" placeholder="يرجى كتابة مقترحك أو تفاصيل الشكوى بصدق وسرية هنا..." required></textarea>
         </div>
         
-        <!-- 🔴 الصندوق الأحمر الثالث الحاسم: زر الإرسال المتناسق -->
+        <!-- الصندوق الأحمر الثالث الحاسم: زر الإرسال المتناسق -->
         <button type="submit" class="btn-send">🚀 إرسال المقترح / الشكوى بصفة سرية</button>
     </form>
     
-    <!-- 🔴 الشعارات الرسمية التأسيسية في الأسفل بالتطابق التام مع ملفك المرفق -->
+    <!-- 🔴 2. الشعارات السفلية تعمل حية من سيرفرات ويب مفتوحة ومستقرة 100% -->
     <div class="footer-logos">
-        <!-- شعار Together for humanity معاً من أجل الإنسانية في اليمين -->
-        <img src="https://wikimedia.org" class="bottom-logo-left" alt="معاً من أجل الإنسانية">
+        <!-- شعار معاً من أجل الإنسانية في اليمين -->
+        <img src="https://ibb.co" class="bottom-logo-left" alt="معاً من أجل الإنسانية">
         
         <!-- شعار ومستمرون بالإنسانية - 82 عاماً في اليسار -->
-        <img src="https://sarc.sy" class="bottom-logo-right" alt="مستمرون بالإنسانية 82 عاماً">
+        <img src="https://ibb.co" class="bottom-logo-right" alt="مستمرون بالإنسانية 82 عاماً">
     </div>
 </div>
 
