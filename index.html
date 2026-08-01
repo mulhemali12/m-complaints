@@ -123,11 +123,11 @@
     <img src="top-logo.png" class="top-logo" alt="شعار الهلال الأحمر">
     <div class="clinic-title">شكاوي الهلال الأحمر العربي السوري<br>مستوصف شطحة</div>
     
-    <!-- 🔴 استبدل الرابط المعروض بداخل الـ action برابط نموذج جوجل الفعلي الخاص بك مع تحويل كلمة viewform إلى formResponse 🔴 -->
-    <form id="complaintForm" action="https://google.com" method="POST" target="hidden_iframe" onsubmit="showSuccessMessage()" style="width: 100%;">
+    <!-- 🔴 ملاحظة هندسية حاسمة: تأكد من استبدال المسار أدناه برابط نموذج جوجل الفعلي الخاص بك المنتهي بـ formResponse 🔴 -->
+    <form id="complaintForm" action="https://google.com" method="POST" target="hidden_iframe" onsubmit="handleFormSubmit(event)" style="width: 100%;">
         
         <div class="form-box">
-            <!-- 🔴 تأكد من تغيير الـ name ليتطابق مع الـ entry.xxxx الأول لقسم جوجل الخاص بك 🔴 -->
+            <!-- 🔴 غير الـ name ليتطابق مع الـ entry.xxxx الخاص بالقسم في نموذجك 🔴 -->
             <select name="entry.11111" id="clinicSelect" class="red-input" onchange="updateStaffList()" required>
                 <option value="" disabled selected>يرجى اختيار العيادة أو القسم المعني...</option>
                 <option value="استقبال">قسم الاستقبال والتسجيل</option>
@@ -140,14 +140,14 @@
         </div>
         
         <div class="form-box staff-box" id="staffContainer">
-            <!-- 🔴 تأكد من تغيير الـ name ليتطابق مع الـ entry.xxxx الثاني لاسم موظف جوجل الخاص بك 🔴 -->
+            <!-- 🔴 غير الـ name ليتطابق مع الـ entry.xxxx الخاص باسم الموظف في نموذجك 🔴 -->
             <select name="entry.22222" id="staffSelect" class="red-input">
                 <!-- يتم شحن الأسماء عبر الجافا سكريبت بالأسفل -->
             </select>
         </div>
         
         <div class="form-box">
-            <!-- 🔴 تأكد من تغيير الـ name ليتطابق مع الـ entry.xxxx الثالث لنص شكوى جوجل الخاص بك 🔴 -->
+            <!-- 🔴 غير الـ name ليتطابق مع الـ entry.xxxx الخاص بنص الشكوى في نموذجك 🔴 -->
             <textarea name="entry.33333" class="red-textarea" placeholder="يرجى كتابة مقترحك أو تفاصيل الشكوى بصدق وسرية هنا..." required></textarea>
         </div>
         
@@ -160,7 +160,6 @@
     </div>
 </div>
 
-<!-- 🟢 نافذة النجاح الخضراء المبهجة والناصعة بالأحمر لمستوصف شطحة تفرش تلقائياً عند الإرسال 🟢 -->
 <div class="main-card success-overlay" id="successCard">
     <h2 style='color:#d9534f; margin-bottom:15px;'>🎉 تم استلام صوتك بنجاح!</h2>
     <p style='color:#333; font-size:16px; line-height:1.6; font-weight:500;'>شكراً جزيلاً لك. لقد تم ترحيل وحفظ مقترحك/شكواك صامتاً في صناديق الإدارة السرية والمحمية كلياً بمستوصف شطحة.</p>
@@ -199,9 +198,16 @@ function updateStaffList() {
     }
 }
 
-function showSuccessMessage() {
-    document.getElementById("mainFormCard").style.display = "none";
-    document.getElementById("successCard").style.display = "block";
+// 🧠 محرك التوجيه الزمني الذكي لضمان انطلاق شحنة البيانات كاملة لغوغل أولاً
+function handleFormSubmit(event) {
+    // 1. تفعيل وعرض شاشة النجاح بمهلة زمنية قصيرة (500 ملي ثانية) تتيح للمتصفح قذف الـ POST
+    setTimeout(function() {
+        document.getElementById("mainFormCard").style.display = "none";
+        document.getElementById("successCard").style.display = "block";
+    }, 500);
+    
+    // ترك الفورم يكمل مساره الطبيعي نحو آيفريم غوغل الصامت
+    return true;
 }
 </script>
 </body>
