@@ -35,7 +35,7 @@
             width: 100%;
             margin-bottom: 25px;
         }
-        /* 🔴 الصناديق ذات الحواف الحمراء الصارمة والمطابقة بالملي لطلبك */
+        /* الصناديق ذات الحواف الحمراء الصارمة والمطابقة بالملي لطلبك */
         .red-input, .red-textarea {
             width: 100%;
             padding: 14px;
@@ -104,8 +104,8 @@
 <body>
 
 <div class="main-card">
-    <!-- 🔴 1. الشعار الرئيسي الحقيقي والعلوي محقون داخلياً كأكواد رسومية فائقة النقاوة (Vector SVG) تطابق صورة ملفك الأصلية 100% ومحمية من الحظر الكلي -->
-    <img src="data:image/svg+xml;utf8,<svg xmlns='http://w3.org' viewBox='0 0 200 200' width='130' height='130'><circle cx='100' cy='100' r='90' fill='none' stroke='%23333333' stroke-width='2'/><circle cx='100' cy='100' r='84' fill='none' stroke='%23333333' stroke-width='1'/><path d='M100,24 A76,76 0 0,0 100,176 A62,62 0 0,1 100,24 Z' fill='%23d9534f'/><path d='M100,19 A81,81 0 0,0 100,181 A67,62 0 0,1 100,19 Z' fill='none' stroke='%23333333' stroke-width='1'/><text x='100' y='193' font-family='Segoe UI, Tahoma' font-size='10' font-weight='bold' fill='%23333' text-anchor='middle'>الهلال الأحمر العربي السوري</text><text x='100' y='14' font-family='Segoe UI, Tahoma' font-size='9' font-weight='600' fill='%23666' text-anchor='middle'>Syrian Arab Red Crescent</text></svg>" class="top-logo" alt="SARC">
+    <!-- 🔴 1. قراءة الشعار الرئيسي العلوي محلياً من ملف السيرفر مباشرة -->
+    <img src="top-logo.png" class="top-logo" alt="شعار الهلال الأحمر العربي السوري">
     
     <!-- فورم الإرسال البرمجي الموجه لملف الترحيل -->
     <form action="submit_complaint.php" method="POST" style="width: 100%;">
@@ -136,13 +136,13 @@
         <button type="submit" class="btn-send">🚀 إرسال المقترح / الشكوى بصفة سرية</button>
     </form>
     
-    <!-- 🔴 2. الشعارات السفلية الأصلية والدقيقة محقونة ومحمية داخلياً كأكواد رسومية متطابقة بالملي مع الصورة المرفقة -->
+    <!-- 🔴 2. قراءة الشعارات السفلية التأسيسية محلياً بالتطابق التام والجودة الفائقة -->
     <div class="footer-logos">
         <!-- شعار Together for humanity معاً من أجل الإنسانية في اليمين -->
-        <img src="data:image/svg+xml;utf8,<svg xmlns='http://w3.org' viewBox='0 0 120 80' width='100' height='65'><path d='M25,20 A22,22 0 0,0 25,60 A17,17 0 0,1 25,20 Z' fill='%23d9534f'/><g fill='none' stroke='%23333333' stroke-width='2'><path d='M65,55 C60,40 50,30 50,20 C50,30 40,40 35,55'/><path d='M50,28 C55,32 68,30 75,32 M50,28 C45,32 35,32 30,35'/></g><circle cx='50' cy='16' r='4' fill='%23333333'/><text x='92' y='32' font-family='Segoe UI, Tahoma' font-size='8' font-weight='bold' fill='%23333'>Together for</text><text x='92' y='44' font-family='Segoe UI, Tahoma' font-size='8' font-weight='bold' fill='%23333'>humanity</text><text x='92' y='56' font-family='Segoe UI, Tahoma' font-size='8' fill='%23555'>معاً من أجل</text><text x='92' y='66' font-family='Segoe UI, Tahoma' font-size='8' fill='%23555'>الإنسانية</text></svg>" class="bottom-logo-left" alt="Together for humanity">
+        <img src="humanity-logo.png" class="bottom-logo-left" alt="معاً من أجل الإنسانية">
         
-        <!-- شعار ومستمرون بالإنسانية - 82 عاماً في اليسار والسترة الميدانية المطابقة بالملي لملفك -->
-        <img src="data:image/svg+xml;utf8,<svg xmlns='http://w3.org' viewBox='0 0 140 80' width='120' height='75'><circle cx='70' cy='40' r='36' fill='none' stroke='%23d9534f' stroke-width='1.5' stroke-dasharray='2,2'/><path d='M55,20 L85,20 L85,60 L55,60 Z M62,20 L62,60 M78,20 L78,60 M55,32 L85,32 M55,48 L85,48' fill='none' stroke='%23d9534f' stroke-width='2'/><circle cx='70' cy='26' r='3' fill='%23d9534f'/><text x='70' y='14' font-family='Segoe UI, Tahoma' font-size='7' font-weight='bold' fill='%23333' text-anchor='middle'>ومستمرون بالإنسانية</text><text x='70' y='72' font-family='Segoe UI, Tahoma' font-size='7' font-weight='bold' fill='%23333' text-anchor='middle'>82 Years of Humanity</text></svg>" class="bottom-logo-right" alt="82 Years and Counting">
+        <!-- شعار ومستمرون بالإنسانية - 82 عاماً في اليسار -->
+        <img src="82-years.png" class="bottom-logo-right" alt="مستمرون بالإنسانية 82 عاماً">
     </div>
 </div>
 
