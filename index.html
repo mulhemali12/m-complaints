@@ -3,127 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منصة المستفيد - مستوصف الهلال الاحمر - شطحة  </title>
+    <title>منصة مقترحات وشكاوى المستفيدين - الهلال الأحمر العربي السوري</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f6;
+            background-color: #ffffff;
             margin: 0;
-            padding: 20px;
+            padding: 15px;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
         }
-        .form-container {
+        .main-card {
             background-color: #ffffff;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
             width: 100%;
-            max-width: 450px;
-            border-top: 6px solid #28a745;
+            max-width: 480px;
+            padding: 25px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        h2 {
-            color: #333333;
-            text-align: center;
-            margin-bottom: 10px;
-            font-size: 22px;
+        /* الشعار العلوي الدائري للهلال الأحمر */
+        .top-logo {
+            width: 130px;
+            height: auto;
+            margin-bottom: 30px;
         }
-        p {
-            color: #666666;
-            text-align: center;
-            font-size: 14px;
+        .form-box {
+            width: 100%;
             margin-bottom: 25px;
         }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        label {
-            display: block;
-            margin-bottom: 8px;
-            color: #444444;
-            font-weight: bold;
-            font-size: 14px;
-        }
-        select, textarea {
+        /* 🔴 تم تحويل الحواف إلى اللون الأحمر الرسمي المنسق تماماً بحسب طلبك */
+        .red-input, .red-textarea {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #cccccc;
-            border-radius: 8px;
+            padding: 14px;
+            border: 2px solid #d9534f;
+            border-radius: 6px;
             box-sizing: border-box;
-            font-size: 15px;
-            background-color: #fafafa;
-            transition: border-color 0.3s;
-        }
-        select:focus, textarea:focus {
-            border-color: #28a745;
-            outline: none;
+            font-size: 16px;
+            font-weight: 500;
+            color: #333333;
             background-color: #ffffff;
+            text-align: right;
+            font-family: inherit;
         }
-        textarea {
+        .red-textarea {
             resize: vertical;
-            height: 120px;
+            height: 140px;
         }
-        .btn-submit {
-            background-color: #28a745;
-            color: white;
+        select.red-input {
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url("data:image/svg+xml;utf8,<svg fill='%23d9534f' height='24' viewBox='0 0 24 24' width='24' xmlns='http://w3.org'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+            background-repeat: no-repeat;
+            background-position: left 10px center;
+        }
+        /* زر الإرسال المدمج والأنيق بالتنسيق المتناسق */
+        .btn-send {
+            width: 100%;
+            background-color: #d9534f;
+            color: #ffffff;
             border: none;
             padding: 14px;
-            width: 100%;
-            border-radius: 8px;
+            border-radius: 6px;
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
-            transition: background-color 0.3s;
-            box-shadow: 0 4px 12px rgba(40, 167, 69, 0.2);
-        }
-        .btn-submit:hover {
-            background-color: #218838;
-        }
-        .footer {
+            transition: background-color 0.2s;
+            box-shadow: 0 4px 10px rgba(217, 83, 79, 0.2);
             text-align: center;
-            margin-top: 20px;
-            font-size: 11px;
-            color: #999999;
+            margin-top: 5px;
+        }
+        .btn-send:hover {
+            background-color: #c9302c;
+            border-color: #c9302c;
+        }
+        /* حاوية الشعارات السفلية الموزعة أفقياً بالتطابق مع الصورة */
+        .footer-logos {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 40px;
+            padding-top: 15px;
+            border-top: 1px dashed #dddddd;
+        }
+        .bottom-logo-left {
+            height: 65px;
+            width: auto;
+        }
+        .bottom-logo-right {
+            height: 75px;
+            width: auto;
         }
     </style>
 </head>
 <body>
 
-<div class="form-container">
-    <h2>📣 صوتك يهمنا لتطوير خدمتنا</h2>
-    <p></p>ملاحظاتكم وشكاواكم تُقرأ مباشرة من قِبل الإدارة العليا بكل سرية وأمان لحماية .</p>
+<div class="main-card">
+    <!-- 🔴 الشعار الرئيسي في الأعلى بحسب الصورة المرفقة -->
+    <img src="https://wikimedia.org" class="top-logo" alt="شعار الهلال الأحمر العربي السوري">
     
-    <!-- فورم الإرسال لملف معالجة البيانات PHP المربوط بقاعدة أكسس -->
-    <form action="submit_complaint.php" method="POST">
+    <!-- فورم الإرسال البرمجي الموجه لملف الترحيل -->
+    <form action="submit_complaint.php" method="POST" style="width: 100%;">
         
-        <div class="form-group">
-            <label for="clinic">🏢 القسم أو العيادة المعنية:</label>
-            <select name="clinic" id="clinic" required>
-                <option value="" disabled selected>اختر القسم من القائمة...</option>
-                <option value="استقبال">موظفي الاستقبال والطوابير</option>
-                <option value="صيدلية">الصيدلية وصرف الأدوية</option>
+        <!-- 🔴 الصندوق الأحمر الأول: اختيار القسم -->
+        <div class="form-box">
+            <select name="clinic" class="red-input" required>
+                <option value="" disabled selected>يرجى اختيار العيادة أو القسم المعني...</option>
+                <option value="استقبال">قسم الاستقبال والتسجيل</option>
+                <option value="صيدلية">قسم الصيدلية وصرف الأدوية</option>
                 <option value="داخلية">عيادة الداخلية</option>
                 <option value="أطفال">عيادة الأطفال</option>
                 <option value="نسائية">عيادة النسائية</option>
                 <option value="أسنان">عيادة الأسنان</option>
                 <option value="نفسية">عيادة النفسية</option>
                 <option value="تغذية">عيادة التغذية</option>
-                <option value="مخبر">قسم المخبر والتحاليل</option>
-                <option value="عام">ملاحظة عامة عن المركز</option>
+                <option value="مخبر">قسم المخبر والتحاليل الطبية</option>
+                <option value="عام">ملاحظة عامة عن المستوصف</option>
             </select>
         </div>
         
-        <div class="form-group">
-            <label for="complaint_text">📝 تفاصيل المقترح أو الشكوى:</label>
-            <textarea name="complaint_text" id="complaint_text" placeholder="اكتب هنا ما واجهك بالتفصيل بصدق وأمان..." required></textarea>
+        <!-- 🔴 الصندوق الأحمر الثاني: نص المقترح أو الشكوى -->
+        <div class="form-box">
+            <textarea name="complaint_text" class="red-textarea" placeholder="يرجى كتابة مقترحك أو تفاصيل الشكوى بصدق وسرية هنا..." required></textarea>
         </div>
         
-        <button type="submit" class="btn-submit">🚀 إرسال المقترح بأمان وسرية</button>
+        <!-- 🔴 الصندوق الأحمر الثالث الحاسم: زر الإرسال المتناسق -->
+        <button type="submit" class="btn-send">🚀 إرسال المقترح / الشكوى بصفة سرية</button>
     </form>
     
-    <div class="footer">🔒 المنصة مشفرة ومحمية بالكامل  </div>
+    <!-- 🔴 الشعارات الرسمية التأسيسية في الأسفل بالتطابق التام مع ملفك المرفق -->
+    <div class="footer-logos">
+        <!-- شعار Together for humanity معاً من أجل الإنسانية في اليمين -->
+        <img src="https://wikimedia.org" class="bottom-logo-left" alt="معاً من أجل الإنسانية">
+        
+        <!-- شعار ومستمرون بالإنسانية - 82 عاماً في اليسار -->
+        <img src="https://sarc.sy" class="bottom-logo-right" alt="مستمرون بالإنسانية 82 عاماً">
+    </div>
 </div>
 
 </body>
