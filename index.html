@@ -68,9 +68,8 @@
             background-repeat: no-repeat;
             background-position: left 10px center;
         }
-        /* أنيق ومخصص لصندوق الأسماء التفاعلي المنبثق */
         .staff-box {
-            display: none; /* يظل مخفياً صامتاً لحين اختيار عيادة معينة */
+            display: none;
             animation: fadeIn 0.4s ease-in-out forwards;
         }
         @keyframes fadeIn {
@@ -104,33 +103,32 @@
             padding-top: 15px;
             border-top: 1px dashed #dddddd;
         }
-        .bottom-logo-left {
+        .bottom-logo-left, .bottom-logo-right {
             height: 65px;
             width: auto;
         }
-        .bottom-logo-right {
-            height: 75px;
-            width: auto;
+        /* نافذة النجاح الخضراء المدمجة حياُ بنظام جافا سكريبت */
+        .success-overlay {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 6px solid #d9534f;
+            background: #fff;
         }
     </style>
 </head>
 <body>
 
-<div class="main-card">
-    <img src="top-logo.png" class="top-logo" alt="شعار الهلال الأحمر العربي السوري">
+<div class="main-card" id="mainFormCard">
+    <img src="top-logo.png" class="top-logo" alt="شعار الهلال الأحمر">
+    <div class="clinic-title">شكاوي الهلال الأحمر العربي السوري<br>مستوصف شطحة</div>
     
-    <div class="clinic-title">
-        شكاوي الهلال الأحمر العربي السوري<br>مستوصف شطحة
-    </div>
-    
-    <!-- فورم الإرسال ومضاف إليه حقل خفي لتمرير اسم الموظف المختار لجدول أكسس -->
-    <form action="server.js" method="POST" style="width: 100%;">
-
-
+    <!-- 🔴 استبدل الرابط المعروض بداخل الـ action برابط نموذج جوجل الفعلي الخاص بك مع تحويل كلمة viewform إلى formResponse 🔴 -->
+    <form id="complaintForm" action="https://google.com" method="POST" target="hidden_iframe" onsubmit="showSuccessMessage()" style="width: 100%;">
         
-        <!-- 1. قائمة اختيار القسم الرئيسي -->
         <div class="form-box">
-            <select name="clinic" id="clinicSelect" class="red-input" onchange="updateStaffList()" required>
+            <!-- 🔴 تأكد من تغيير الـ name ليتطابق مع الـ entry.xxxx الأول لقسم جوجل الخاص بك 🔴 -->
+            <select name="entry.11111" id="clinicSelect" class="red-input" onchange="updateStaffList()" required>
                 <option value="" disabled selected>يرجى اختيار العيادة أو القسم المعني...</option>
                 <option value="استقبال">قسم الاستقبال والتسجيل</option>
                 <option value="صيدلية">قسم الصيدلية وصرف الأدوية</option>
@@ -141,85 +139,70 @@
             </select>
         </div>
         
-        <!-- ⚡ 2. رادار الأساخ الحركي المنبثق تلقائياً بناءً على القسم المختار ⚡ -->
         <div class="form-box staff-box" id="staffContainer">
-            <select name="staff_name" id="staffSelect" class="red-input">
-                <!-- يتم شحن الأسماء حياً بحي عبر الجافا سكريبت بالأسفل -->
+            <!-- 🔴 تأكد من تغيير الـ name ليتطابق مع الـ entry.xxxx الثاني لاسم موظف جوجل الخاص بك 🔴 -->
+            <select name="entry.22222" id="staffSelect" class="red-input">
+                <!-- يتم شحن الأسماء عبر الجافا سكريبت بالأسفل -->
             </select>
         </div>
         
         <div class="form-box">
-            <textarea name="complaint_text" class="red-textarea" placeholder="يرجى كتابة مقترحك أو تفاصيل الشكوى بصدق وسرية هنا..." required></textarea>
+            <!-- 🔴 تأكد من تغيير الـ name ليتطابق مع الـ entry.xxxx الثالث لنص شكوى جوجل الخاص بك 🔴 -->
+            <textarea name="entry.33333" class="red-textarea" placeholder="يرجى كتابة مقترحك أو تفاصيل الشكوى بصدق وسرية هنا..." required></textarea>
         </div>
         
-        <button type="submit" class="btn-send"> إرسال المقترح / الشكوى بصفة سرية</button>
+        <button type="submit" class="btn-send">🚀 إرسال المقترح / الشكوى بصفة سرية</button>
     </form>
     
     <div class="footer-logos">
         <img src="humanity-logo.png" class="bottom-logo-left" alt="معاً من أجل الإنسانية">
-        <img src="82-years.png" class="bottom-logo-right" alt="مستمرون بالإنسانية 82 عاماً">
+        <img src="82-years.png" class="bottom-logo-right" alt="82 عاماً">
     </div>
 </div>
 
-<!-- ==================================================== -->
-<!-- 🧠 محرك الجافا سكريبت الذكي لحقن وتمرير أسماء الموظفين للأقسام -->
-<!-- ==================================================== -->
+<!-- 🟢 نافذة النجاح الخضراء المبهجة والناصعة بالأحمر لمستوصف شطحة تفرش تلقائياً عند الإرسال 🟢 -->
+<div class="main-card success-overlay" id="successCard">
+    <h2 style='color:#d9534f; margin-bottom:15px;'>🎉 تم استلام صوتك بنجاح!</h2>
+    <p style='color:#333; font-size:16px; line-height:1.6; font-weight:500;'>شكراً جزيلاً لك. لقد تم ترحيل وحفظ مقترحك/شكواك صامتاً في صناديق الإدارة السرية والمحمية كلياً بمستوصف شطحة.</p>
+</div>
+
+<!-- آيفريم مخفي يستقبل رد جوجل صامتاً بالخلفية لكي لا تغادر الصفحة واجهة الهلال الأحمر -->
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
 <script>
 function updateStaffList() {
     var clinicSelect = document.getElementById("clinicSelect");
     var staffContainer = document.getElementById("staffContainer");
     var staffSelect = document.getElementById("staffSelect");
-    
     var selectedClinic = clinicSelect.value;
-    
-    // تصفير الخيارات السابقة بالكامل حماية للذاكرة
     staffSelect.innerHTML = "";
-    
-    // مصفوفة شحن الموظفين والأطباء الفعليين لمستوصف شطحة بالملي بحسب طلبك
     var staffOptions = [];
     
-    if (selectedClinic === "استقبال") {
-        staffOptions = ["مرفت الدريوسي", "فرح خضور", "شخص آخر / القسم ككل"];
-    } else if (selectedClinic === "صيدلية") {
-        staffOptions = ["رزان زلخة", "ايناث نصرة", "شخص آخر / القسم ككل"];
-    } else if (selectedClinic === "داخلية") {
-        staffOptions = ["د. حسين حسن", "مجدلين جعفر", "شخص آخر / القسم ككل"];
-    } else if (selectedClinic === "نسائية") {
-        staffOptions = ["د. اليانور عبود", "فرح أسعد", "شخص آخر / القسم ككل"];
-    } else if (selectedClinic === "أطفال") {
-        staffOptions = ["ضحى محفوض", "شخص آخر / القسم ككل"];
-    } else if (selectedClinic === "عام") {
-        staffOptions = ["ملهم علي", "صالح حسن", "لوجين علي", "شخص آخر / القسم ككل"];
-    }
+    if (selectedClinic === "استقبال") { staffOptions = ["مرفت الدريوسي", "فرح خضور", "القسم ككل"]; }
+    else if (selectedClinic === "صيدلية") { staffOptions = ["رزان زلخة", "ايناث نصرة", "القسم ككل"]; }
+    else if (selectedClinic === "داخلية") { staffOptions = ["د. حسين حسن", "مجدلين جعفر", "القسم ككل"]; }
+    else if (selectedClinic === "نسائية") { staffOptions = ["د. اليانور عبود", "فرح أسعد", "القسم ككل"]; }
+    else if (selectedClinic === "أطفال") { staffOptions = ["ضحى محفوض", "القسم ككل"]; }
+    else if (selectedClinic === "عام") { staffOptions = ["ملهم علي", "صالح حسن", "لوجين علي", "القسم ككل"]; }
     
-    // إذا وجدنا موظفين مسجلين للقسم، نفتح الصندوق ونحقن الأسماء فوراُ
     if (staffOptions.length > 0) {
-        // إضافة خيار توجيهي افتراضي ناصع
         var defaultOpt = document.createElement("option");
-        defaultOpt.value = "";
-        defaultOpt.text = "يرجى تحديد الموظف أو الطبيب المقصود بالشكوى...";
-        defaultOpt.disabled = true;
-        defaultOpt.selected = true;
+        defaultOpt.value = ""; defaultOpt.text = "يرجى تحديد الموظف أو الطبيب المقصود...";
+        defaultOpt.disabled = true; defaultOpt.selected = true;
         staffSelect.appendChild(defaultOpt);
-        
-        // حقن الخيارات الحية بالأسماء
         staffOptions.forEach(function(name) {
-            var opt = document.createElement("option");
-            opt.value = name;
-            opt.text = name;
-            staffSelect.appendChild(opt);
+            var opt = document.createElement("option"); opt.value = name; opt.text = name; staffSelect.appendChild(opt);
         });
-        
-        // فتح وإظهار الحقل بصرياً بحركة انسيابية مريحة
-        staffContainer.style.display = "block";
-        staffSelect.required = true;
+        staffContainer.style.display = "block"; staffSelect.required = true;
     } else {
-        // إخفاء الحقل صامتاً إذا لم يكن هناك أسماء مخصصة
-        staffContainer.style.display = "none";
-        staffSelect.required = false;
+        staffContainer.style.display = "none"; staffSelect.required = false;
     }
 }
-</script>
 
+function showSuccessMessage() {
+    document.getElementById("mainFormCard").style.display = "none";
+    document.getElementById("successCard").style.display = "block";
+}
+</script>
 </body>
 </html>
