@@ -25,13 +25,11 @@
             flex-direction: column;
             align-items: center;
         }
-        /* الشعار العلوي الدائري للهلال الأحمر */
         .top-logo {
             width: 130px;
             height: auto;
             margin-bottom: 15px;
         }
-        /* 🔴 التنسيق الفخم للعبارة الرسمية الجديدة تحت الشعار مباشرة */
         .clinic-title {
             font-size: 18px;
             font-weight: bold;
@@ -42,9 +40,8 @@
         }
         .form-box {
             width: 100%;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
-        /* الصناديق ذات الحواف الحمراء الصارمة والمطابقة بالملي لطلبك */
         .red-input, .red-textarea {
             width: 100%;
             padding: 14px;
@@ -71,7 +68,15 @@
             background-repeat: no-repeat;
             background-position: left 10px center;
         }
-        /* زر الإرسال المدمج والأنيق بالتنسيق المتناسق */
+        /* أنيق ومخصص لصندوق الأسماء التفاعلي المنبثق */
+        .staff-box {
+            display: none; /* يظل مخفياً صامتاً لحين اختيار عيادة معينة */
+            animation: fadeIn 0.4s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
         .btn-send {
             width: 100%;
             background-color: #d9534f;
@@ -90,7 +95,6 @@
         .btn-send:hover {
             background-color: #c9302c;
         }
-        /* حاوية الشعارات السفلية الموزعة أفقياً بالتطابق مع الصورة */
         .footer-logos {
             width: 100%;
             display: flex;
@@ -113,52 +117,107 @@
 <body>
 
 <div class="main-card">
-    <!-- 🔴 1. الشعار الرئيسي العلوي محلياً من ملف السيرفر مباشرة -->
     <img src="top-logo.png" class="top-logo" alt="شعار الهلال الأحمر العربي السوري">
     
-    <!-- 🔴 2. العبارة الرسمية المخصصة لمستوصف شطحة تحت الشعار مباشرة بحسب طلبك -->
     <div class="clinic-title">
         شكاوي الهلال الأحمر العربي السوري<br>مستوصف شطحة
     </div>
     
-    <!-- فورم الإرسال البرمجي الموجه لملف الترحيل -->
+    <!-- فورم الإرسال ومضاف إليه حقل خفي لتمرير اسم الموظف المختار لجدول أكسس -->
     <form action="submit_complaint.php" method="POST" style="width: 100%;">
         
-        <!-- الصندوق الأحمر الأول: اختيار القسم -->
+        <!-- 1. قائمة اختيار القسم الرئيسي -->
         <div class="form-box">
-            <select name="clinic" class="red-input" required>
+            <select name="clinic" id="clinicSelect" class="red-input" onchange="updateStaffList()" required>
                 <option value="" disabled selected>يرجى اختيار العيادة أو القسم المعني...</option>
                 <option value="استقبال">قسم الاستقبال والتسجيل</option>
                 <option value="صيدلية">قسم الصيدلية وصرف الأدوية</option>
                 <option value="داخلية">عيادة الداخلية</option>
-                <option value="أطفال">عيادة الأطفال</option>
                 <option value="نسائية">عيادة النسائية</option>
-                <option value="أسنان">عيادة الأسنان</option>
-                <option value="نفسية">عيادة النفسية</option>
-                <option value="تغذية">عيادة التغذية</option>
-                <option value="مخبر">قسم المخبر والتحاليل الطبية</option>
+                <option value="أطفال">عيادة الأطفال</option>
                 <option value="عام">ملاحظة عامة عن المستوصف</option>
             </select>
         </div>
         
-        <!-- الصندوق الأحمر الثاني: نص المقترح أو الشكوى -->
+        <!-- ⚡ 2. رادار الأساخ الحركي المنبثق تلقائياً بناءً على القسم المختار ⚡ -->
+        <div class="form-box staff-box" id="staffContainer">
+            <select name="staff_name" id="staffSelect" class="red-input">
+                <!-- يتم شحن الأسماء حياً بحي عبر الجافا سكريبت بالأسفل -->
+            </select>
+        </div>
+        
         <div class="form-box">
             <textarea name="complaint_text" class="red-textarea" placeholder="يرجى كتابة مقترحك أو تفاصيل الشكوى بصدق وسرية هنا..." required></textarea>
         </div>
         
-        <!-- الصندوق الأحمر الثالث الحاسم: زر الإرسال المتناسق -->
         <button type="submit" class="btn-send">🚀 إرسال المقترح / الشكوى بصفة سرية</button>
     </form>
     
-    <!-- 🔴 3. قراءة الشعارات السفلية التأسيسية محلياً بالتطابق التام والجودة الفائقة -->
     <div class="footer-logos">
-        <!-- شعار Together for humanity معاً من أجل الإنسانية في اليمين -->
         <img src="humanity-logo.png" class="bottom-logo-left" alt="معاً من أجل الإنسانية">
-        
-        <!-- شعار ومستمرون بالإنسانية - 82 عاماً في اليسار -->
         <img src="82-years.png" class="bottom-logo-right" alt="مستمرون بالإنسانية 82 عاماً">
     </div>
 </div>
+
+<!-- ==================================================== -->
+<!-- 🧠 محرك الجافا سكريبت الذكي لحقن وتمرير أسماء الموظفين للأقسام -->
+<!-- ==================================================== -->
+<script>
+function updateStaffList() {
+    var clinicSelect = document.getElementById("clinicSelect");
+    var staffContainer = document.getElementById("staffContainer");
+    var staffSelect = document.getElementById("staffSelect");
+    
+    var selectedClinic = clinicSelect.value;
+    
+    // تصفير الخيارات السابقة بالكامل حماية للذاكرة
+    staffSelect.innerHTML = "";
+    
+    // مصفوفة شحن الموظفين والأطباء الفعليين لمستوصف شطحة بالملي بحسب طلبك
+    var staffOptions = [];
+    
+    if (selectedClinic === "استقبال") {
+        staffOptions = ["مرفت الدريوسي", "فرح خضور", "شخص آخر / القسم ككل"];
+    } else if (selectedClinic === "صيدلية") {
+        staffOptions = ["رزان زلخة", "ايناث نصرة", "شخص آخر / القسم ككل"];
+    } else if (selectedClinic === "داخلية") {
+        staffOptions = ["د. حسين حسن", "مجدلين جعفر", "شخص آخر / القسم ككل"];
+    } else if (selectedClinic === "نسائية") {
+        staffOptions = ["د. اليانور عبود", "فرح أسعد", "شخص آخر / القسم ككل"];
+    } else if (selectedClinic === "أطفال") {
+        staffOptions = ["ضحى محفوض", "شخص آخر / القسم ككل"];
+    } else if (selectedClinic === "عام") {
+        staffOptions = ["ملهم علي", "صالح حسن", "لوجين علي", "شخص آخر / القسم ككل"];
+    }
+    
+    // إذا وجدنا موظفين مسجلين للقسم، نفتح الصندوق ونحقن الأسماء فوراُ
+    if (staffOptions.length > 0) {
+        // إضافة خيار توجيهي افتراضي ناصع
+        var defaultOpt = document.createElement("option");
+        defaultOpt.value = "";
+        defaultOpt.text = "يرجى تحديد الموظف أو الطبيب المقصود بالشكوى...";
+        defaultOpt.disabled = true;
+        defaultOpt.selected = true;
+        staffSelect.appendChild(defaultOpt);
+        
+        // حقن الخيارات الحية بالأسماء
+        staffOptions.forEach(function(name) {
+            var opt = document.createElement("option");
+            opt.value = name;
+            opt.text = name;
+            staffSelect.appendChild(opt);
+        });
+        
+        // فتح وإظهار الحقل بصرياً بحركة انسيابية مريحة
+        staffContainer.style.display = "block";
+        staffSelect.required = true;
+    } else {
+        // إخفاء الحقل صامتاً إذا لم يكن هناك أسماء مخصصة
+        staffContainer.style.display = "none";
+        staffSelect.required = false;
+    }
+}
+</script>
 
 </body>
 </html>
