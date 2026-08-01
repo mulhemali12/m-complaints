@@ -25,15 +25,51 @@
             flex-direction: column;
             align-items: center;
         }
-        .top-logo {
-            width: 120px;
-            height: auto;
-            margin-bottom: 25px;
+        
+        /* 🔴 1. تصميم الشعار الدائري العلوي للهلال الأحمر بالـ CSS الصرف 🔴 */
+        .css-top-logo {
+            width: 110px;
+            height: 110px;
+            border: 4px solid #d9534f;
+            border-radius: 50%;
+            position: relative;
+            margin-bottom: 5px;
+            box-sizing: border-box;
         }
+        .css-crescent {
+            width: 70px;
+            height: 70px;
+            background-color: #d9534f;
+            border-radius: 50%;
+            position: absolute;
+            top: 16px;
+            right: 12px;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        }
+        .css-crescent::after {
+            content: '';
+            width: 58px;
+            height: 58px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            position: absolute;
+            top: 6px;
+            right: -2px;
+        }
+        .logo-title-text {
+            font-size: 13px;
+            font-weight: bold;
+            color: #333333;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
         .form-box {
             width: 100%;
             margin-bottom: 20px;
         }
+        
+        /* 🔴 2. الصناديق ذات الحواف الحمراء الصارمة والمطابقة لطلبك 🔴 */
         .red-input, .red-textarea {
             width: 100%;
             padding: 14px;
@@ -60,6 +96,8 @@
             background-repeat: no-repeat;
             background-position: left 10px center;
         }
+        
+        /* زر الإرسال المنسق */
         .btn-send {
             width: 100%;
             background-color: #d9534f;
@@ -77,6 +115,8 @@
         .btn-send:hover {
             background-color: #c9302c;
         }
+        
+        /* 🔴 3. تصميم الشعارات السفلية التأسيسية بالـ CSS والنصوص المدمجة 🔴 */
         .footer-logos {
             width: 100%;
             display: flex;
@@ -86,21 +126,56 @@
             padding-top: 15px;
             border-top: 1px dashed #dddddd;
         }
-        .bottom-logo-left {
-            height: 55px;
-            width: auto;
+        .css-humanity-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 12px;
+            font-weight: bold;
+            color: #555555;
         }
-        .bottom-logo-right {
-            height: 65px;
-            width: auto;
+        .mini-crescent {
+            width: 30px;
+            height: 30px;
+            background-color: #d9534f;
+            border-radius: 50%;
+            position: relative;
+            margin-bottom: 4px;
+        }
+        .mini-crescent::after {
+            content: '';
+            width: 24px;
+            height: 24px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            position: absolute;
+            top: 3px;
+            right: -1px;
+        }
+        .css-years-box {
+            border: 1.5px dashed #d9534f;
+            border-radius: 4px;
+            padding: 4px 8px;
+            text-align: center;
+            font-size: 11px;
+            font-weight: bold;
+            color: #333333;
+        }
+        .css-years-title {
+            font-size: 13px;
+            color: #d9534f;
+            margin-bottom: 2px;
         }
     </style>
 </head>
 <body>
 
 <div class="main-card">
-    <!-- 🔴 1. الشعار العلوي الدائري محقون كـ كود نصي مستقل ومحمي 100% من الحظر -->
-    <img src="data:image/svg+xml;utf8,<svg xmlns='http://w3.org' viewBox='0 0 100 100' width='100' height='100'><circle cx='50' cy='50' r='46' fill='none' stroke='%23d9534f' stroke-width='4'/><path d='M50,15 A35,35 0 0,0 50,85 A28,28 0 0,1 50,15 Z' fill='%23d9534f'/><text x='50' y='96' font-family='Segoe UI, Tahoma' font-size='6' font-weight='bold' fill='%23333' text-anchor='middle'>الهلال الأحمر العربي السوري</text></svg>" class="top-logo" alt="SARC">
+    <!-- 🔴 1. الهلال الأحمر الدائري مرسوم حياً وحتماً بالـ CSS بالقمة -->
+    <div class="css-top-logo">
+        <div class="css-crescent"></div>
+    </div>
+    <div class="logo-title-text">الهلال الأحمر العربي السوري</div>
     
     <form action="submit_complaint.php" method="POST" style="width: 100%;">
         <div class="form-box">
@@ -126,13 +201,19 @@
         <button type="submit" class="btn-send">🚀 إرسال المقترح / الشكوى بصفة سرية</button>
     </form>
     
-    <!-- 🔴 2. الشعارات السفلية التأسيسية محقونة ومحمية داخلياً كأكواد رسومية فائقة النقاوة (Vector SVG) -->
+    <!-- 🔴 2. الشعارات السفلية التأسيسية مرسومة ومدمجة حياً بالـ CSS والنصوص النظيفة 🔴 -->
     <div class="footer-logos">
-        <!-- شعار الهلال والنواة الإنسانية المطور والمحمي -->
-        <img src="data:image/svg+xml;utf8,<svg xmlns='http://w3.org' viewBox='0 0 80 60' width='80' height='60'><path d='M25,15 A20,20 0 0,0 25,50 A16,16 0 0,1 25,15 Z' fill='%23d9534f'/><circle cx='55' cy='32' r='10' fill='none' stroke='%23333' stroke-width='2'/><line x1='55' y1='15' x2='55' y2='22' stroke='%23333' stroke-width='2'/><line x1='55' y1='42' x2='55' y2='50' stroke='%23333' stroke-width='2'/><text x='55' y='58' font-family='Segoe UI' font-size='6' fill='%23666' text-anchor='middle'>الإنسانية</text></svg>" class="bottom-logo-left" alt="Humanity">
+        <!-- جهة اليمين: شعار معاً من أجل الإنسانية -->
+        <div class="css-humanity-box">
+            <div class="mini-crescent"></div>
+            <span>معاً من أجل الإنسانية</span>
+        </div>
         
-        <!-- شعار ومستمرون بالإنسانية - 82 عاماً محقون داخلياً -->
-        <img src="data:image/svg+xml;utf8,<svg xmlns='http://w3.org' viewBox='0 0 100 60' width='100' height='60'><rect x='5' y='10' width='90' height='40' rx='5' fill='none' stroke='%23d9534f' stroke-width='1.5' stroke-dasharray='3,3'/><text x='50' y='30' font-family='Segoe UI, Tahoma' font-size='11' font-weight='bold' fill='%23d9534f' text-anchor='middle'>82 عاماً</text><text x='50' y='44' font-family='Segoe UI, Tahoma' font-size='8' fill='%23333' text-anchor='middle'>ومستمرون بالإنسانية</text></svg>" class="bottom-logo-right" alt="82 Years">
+        <!-- جهة اليسار: شعار 82 عاماً وممستمرون بالإنسانية -->
+        <div class="css-years-box">
+            <div class="css-years-title">82 عاماً</div>
+            <span>ومستمرون بالإنسانية</span>
+        </div>
     </div>
 </div>
 
