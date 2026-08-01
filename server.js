@@ -28,7 +28,7 @@ app.post('/submit_complaint', (req, res) => {
     res.send(`
         <div dir='rtl' style='font-family:sans-serif; text-align:center; padding:40px 20px; max-width:400px; margin:80px auto; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.08); border-top:6px solid #d9534f; background:#fff;'>
             <h2 style='color:#d9534f; margin-bottom:15px;'>🎉 تم استلام صوتك بنجاح!</h2>
-            <p style='color:#333; font-size:16px; line-height:1.6; font-weight:500;'>شكراً جزيلاً لك. لقد تم حفظ مقترحك/شكواك صامتاً في صناديق الإدارة السرية والمحمية كلياً بمستوصف شطحة.</p>
+            <p style='color:#333; font-size:16px; line-height:1.6; font-weight:500;'>شكراً جزيلاً لك. لقد تم حفظ مقترحك/شكواك.</p>
         </div>
     `);
 });
