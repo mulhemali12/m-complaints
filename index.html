@@ -122,15 +122,11 @@
     <img src="top-logo.png" class="top-logo" alt="شعار الهلال الأحمر">
     <div class="clinic-title">شكاوي الهلال الأحمر العربي السوري<br>مستوصف شطحة</div>
     
-    <!-- 🔐 تم توجيه البوابة بالكامل وبالملي لحساب بريدك الإلكتروني الشخصي: mulhemali12@gmail.com 🔐 -->
-    <form id="complaintForm" action="https://formsubmit.co" method="POST" target="hidden_iframe" style="width: 100%;">
-        
-        <!-- إعدادات التأمين التلقائي وحجب شاشات التحقق الخارجية من FormSubmit -->
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_subject" value="📣 شكوى إلكترونية جديدة - مستوصف شطحة">
+    <!-- 🔐 محرك التوجيه البريدي المباشر والصارم عبر بروتوكول الجوال الداخلي المحمي 100% ضد الحظر 🔐 -->
+    <form id="complaintForm" onsubmit="sendViaMailto(event)" style="width: 100%;">
         
         <div class="form-box">
-            <select name="القسم المعني" id="clinicSelect" class="red-input" onchange="updateStaffList()" required>
+            <select id="clinicSelect" class="red-input" onchange="updateStaffList()" required>
                 <option value="" disabled selected>يرجى اختيار العيادة أو القسم المعني...</option>
                 <option value="استقبال">قسم الاستقبال والتسجيل</option>
                 <option value="صيدلية">قسم الصيدلية وصرف الأدوية</option>
@@ -142,13 +138,13 @@
         </div>
         
         <div class="form-box staff-box" id="staffContainer">
-            <select name="اسم الموظف المشكو بحقه" id="staffSelect" class="red-input">
+            <select id="staffSelect" class="red-input">
                 <!-- يتم شحن الأسماء عبر الجافا سكريبت بالأسفل -->
             </select>
         </div>
         
         <div class="form-box">
-            <textarea name="تفاصيل الشكوى" class="red-textarea" placeholder="يرجى كتابة مقترحك أو تفاصيل الشكوى بصدق وسرية هنا..." required></textarea>
+            <textarea id="complaintText" class="red-textarea" placeholder="يرجى كتابة مقترحك أو تفاصيل الشكوى بصدق وسرية هنا..." required></textarea>
         </div>
         
         <button type="submit" class="btn-send">🚀 إرسال المقترح / الشكوى بصفة سرية</button>
@@ -161,19 +157,11 @@
 </div>
 
 <div class="main-card success-overlay" id="successCard">
-    <h2 style='color:#d9534f; margin-bottom:15px;'>🎉 تم استلام صوتك بنجاح!</h2>
-    <p style='color:#333; font-size:16px; line-height:1.6; font-weight:500;'>شكراً جزيلاً لك. لقد تم ترحيل وحفظ مقترحك/شكواك صامتاً في صناديق الإدارة السرية والمحمية كلياً بمستوصف شطحة.</p>
+    <h2 style='color:#d9534f; margin-bottom:15px;'>🎉 تم تجهيز صوتك بنجاح!</h2>
+    <p style='color:#333; font-size:16px; line-height:1.6; font-weight:500;'>شكراً جزيلاً لك. لقد تم فتح تطبيق البريد الخاص بك لإرسال الشكوى مباشرة إلى صناديق الإدارة السرية بمستوصف شطحة حماية لكرامتكم.</p>
 </div>
 
-<!-- آيفريم مخفي لتلقف الرد صامتاً وإطلاق واجهة الاستجابة الفخمة للمستفيد فوراً -->
-<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) { showSuccessMessage(); }"></iframe>
-
 <script>
-var submitted = false;
-document.getElementById('complaintForm').onsubmit = function() {
-    submitted = true;
-};
-
 function updateStaffList() {
     var clinicSelect = document.getElementById("clinicSelect");
     var staffContainer = document.getElementById("staffContainer");
@@ -203,7 +191,30 @@ function updateStaffList() {
     }
 }
 
-function showSuccessMessage() {
+// 🧠 محرك حقن وإطلاق الشكاوى مباشرة لإيميل ملهم دون حواجز سحابية
+function sendViaMailto(event) {
+    event.preventDefault(); // منع الفورم من الانطلاق الأعمى المعزول
+    
+    var clinic = document.getElementById("clinicSelect").value;
+    var staff = document.getElementById("staffSelect").value || "القسم ككل";
+    var text = document.getElementById("complaintText").value;
+    
+    // صياغة عنوان وجسم الرسالة المنسقة باللغة العربية بالترميز العالمي
+    var targetEmail = "mulhemali12@gmail.com";
+    var subject = encodeURIComponent("📣 شكوى إلكترونية جديدة - مستوصف شطحة");
+    
+    var bodyMessage = "تفاصيل الشكوى الواردة:\n\n" +
+                      "🏢 القسم المعني: " + clinic + "\n" +
+                      "👤 الموظف المشكو بحقه: " + staff + "\n" +
+                      "📝 نص الشكوى والمقترح:\n" + text + "\n\n" +
+                      "⚠️ تم الترحيل تلقائياً عبر منصة المستفيدين الحرة.";
+                      
+    var body = encodeURIComponent(bodyMessage);
+    
+    // إطلاق وعاء الـ mailto المباشر لفتح تطبيق الجوال فوراً قسرياً
+    window.location.href = "mailto:" + targetEmail + "?subject=" + subject + "&body=" + body;
+    
+    // عرض صفحة الإرشاد والنجاح الفخمة للمستفيد
     document.getElementById("mainFormCard").style.display = "none";
     document.getElementById("successCard").style.display = "block";
 }
