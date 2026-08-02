@@ -107,7 +107,6 @@
             height: 65px;
             width: auto;
         }
-        /* نافذة النجاح الخضراء المدمجة حياُ بنظام جافا سكريبت */
         .success-overlay {
             display: none;
             text-align: center;
@@ -123,12 +122,12 @@
     <img src="top-logo.png" class="top-logo" alt="شعار الهلال الأحمر">
     <div class="clinic-title">شكاوي الهلال الأحمر العربي السوري<br>مستوصف شطحة</div>
     
-    <!-- 🔴 ملاحظة هندسية حاسمة: تأكد من استبدال المسار أدناه برابط نموذج جوجل الفعلي الخاص بك المنتهي بـ formResponse 🔴 -->
-    <form id="complaintForm" action="https://docs.google.com/forms/u/0/d/1x-0ncPCwURfhHDyLy7AJ1fw3gQQzUICSMvlR-QByGi0/prefill" method="POST" target="hidden_iframe" onsubmit="handleFormSubmit(event)" style="width: 100%;">
+    <!-- 🔴 1. ضع رابط الـ Formspree الحقيقي الخاص بك هنا مباشرة بالأسفل 🔴 -->
+    <form id="complaintForm" action="https://formspree.io/f/mkodlkon" method="POST" target="hidden_iframe" style="width: 100%;">
         
         <div class="form-box">
-            <!-- 🔴 غير الـ name ليتطابق مع الـ entry.xxxx الخاص بالقسم في نموذجك 🔴 -->
-            <select name="entry.1707878490" id="clinicSelect" class="red-input" onchange="updateStaffList()" required>
+            <!-- أسماء الحقول أصبحت عادية وصريحة وناصعة ومستحيل يرفضها السيرفر -->
+            <select name="clinic" id="clinicSelect" class="red-input" onchange="updateStaffList()" required>
                 <option value="" disabled selected>يرجى اختيار العيادة أو القسم المعني...</option>
                 <option value="استقبال">قسم الاستقبال والتسجيل</option>
                 <option value="صيدلية">قسم الصيدلية وصرف الأدوية</option>
@@ -140,18 +139,16 @@
         </div>
         
         <div class="form-box staff-box" id="staffContainer">
-            <!-- 🔴 غير الـ name ليتطابق مع الـ entry.xxxx الخاص باسم الموظف في نموذجك 🔴 -->
-            <select name="entry.2" id="staffSelect" class="red-input">
+            <select name="staff_name" id="staffSelect" class="red-input">
                 <!-- يتم شحن الأسماء عبر الجافا سكريبت بالأسفل -->
             </select>
         </div>
         
         <div class="form-box">
-            <!-- 🔴 غير الـ name ليتطابق مع الـ entry.xxxx الخاص بنص الشكوى في نموذجك 🔴 -->
-            <textarea name="entry.3" class="red-textarea" placeholder="يرجى كتابة مقترحك أو تفاصيل الشكوى بصدق وسرية هنا..." required></textarea>
+            <textarea name="complaint_text" class="red-textarea" placeholder="يرجى كتابة مقترحك أو تفاصيل الشكوى بصدق وسرية هنا..." required></textarea>
         </div>
         
-        <button type="submit" class="btn-send"> إرسال المقترح / الشكوى بصفة سرية</button>
+        <button type="submit" class="btn-send">🚀 إرسال المقترح / الشكوى بصفة سرية</button>
     </form>
     
     <div class="footer-logos">
@@ -165,10 +162,15 @@
     <p style='color:#333; font-size:16px; line-height:1.6; font-weight:500;'>شكراً جزيلاً لك. لقد تم ترحيل وحفظ مقترحك/شكواك صامتاً في صناديق الإدارة السرية والمحمية كلياً بمستوصف شطحة.</p>
 </div>
 
-<!-- آيفريم مخفي يستقبل رد جوجل صامتاً بالخلفية لكي لا تغادر الصفحة واجهة الهلال الأحمر -->
-<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+<!-- آيفريم يستقبل الرد صامتاً ويطلق رسالة النجاح فوراً -->
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) { showSuccessMessage(); }"></iframe>
 
 <script>
+var submitted = false;
+document.getElementById('complaintForm').onsubmit = function() {
+    submitted = true;
+};
+
 function updateStaffList() {
     var clinicSelect = document.getElementById("clinicSelect");
     var staffContainer = document.getElementById("staffContainer");
@@ -198,16 +200,9 @@ function updateStaffList() {
     }
 }
 
-// 🧠 محرك التوجيه الزمني الذكي لضمان انطلاق شحنة البيانات كاملة لغوغل أولاً
-function handleFormSubmit(event) {
-    // 1. تفعيل وعرض شاشة النجاح بمهلة زمنية قصيرة (500 ملي ثانية) تتيح للمتصفح قذف الـ POST
-    setTimeout(function() {
-        document.getElementById("mainFormCard").style.display = "none";
-        document.getElementById("successCard").style.display = "block";
-    }, 500);
-    
-    // ترك الفورم يكمل مساره الطبيعي نحو آيفريم غوغل الصامت
-    return true;
+function showSuccessMessage() {
+    document.getElementById("mainFormCard").style.display = "none";
+    document.getElementById("successCard").style.display = "block";
 }
 </script>
 </body>
