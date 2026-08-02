@@ -122,12 +122,16 @@
     <img src="top-logo.png" class="top-logo" alt="شعار الهلال الأحمر">
     <div class="clinic-title">شكاوي الهلال الأحمر العربي السوري<br>مستوصف شطحة</div>
     
-    <!-- 🔴 1. ضع رابط الـ Formspree الحقيقي الخاص بك هنا مباشرة بالأسفل 🔴 -->
-    <form id="complaintForm" action="https://formspree.io/f/mkodlkon" method="POST" target="hidden_iframe" style="width: 100%;">
+    <!-- 🔴 1. بوابة التوجيه البريدي الحر المباشر صامتاً بالخلفية 🔴 -->
+    < mulhemali12@gmail.com>
+    <form id="complaintForm" action="https://formsubmit.co" method="POST" target="hidden_iframe" style="width: 100%;">
+        
+        <!-- إعدادات التخصيص والأتمتة لبوابة FormSubmit لحظر الشاشات الخارجية وعمل إعادة توجيه صامتة -->
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_subject" value="📣 شكوى إلكترونية جديدة - مستوصف شطحة">
         
         <div class="form-box">
-            <!-- أسماء الحقول أصبحت عادية وصريحة وناصعة ومستحيل يرفضها السيرفر -->
-            <select name="clinic" id="clinicSelect" class="red-input" onchange="updateStaffList()" required>
+            <select name="القسم المعني" id="clinicSelect" class="red-input" onchange="updateStaffList()" required>
                 <option value="" disabled selected>يرجى اختيار العيادة أو القسم المعني...</option>
                 <option value="استقبال">قسم الاستقبال والتسجيل</option>
                 <option value="صيدلية">قسم الصيدلية وصرف الأدوية</option>
@@ -139,13 +143,13 @@
         </div>
         
         <div class="form-box staff-box" id="staffContainer">
-            <select name="staff_name" id="staffSelect" class="red-input">
+            <select name="اسم الموظف المشكو بحقه" id="staffSelect" class="red-input">
                 <!-- يتم شحن الأسماء عبر الجافا سكريبت بالأسفل -->
             </select>
         </div>
         
         <div class="form-box">
-            <textarea name="complaint_text" class="red-textarea" placeholder="يرجى كتابة مقترحك أو تفاصيل الشكوى بصدق وسرية هنا..." required></textarea>
+            <textarea name="تفاصيل الشكوى" class="red-textarea" placeholder="يرجى كتابة مقترحك أو تفاصيل الشكوى بصدق وسرية هنا..." required></textarea>
         </div>
         
         <button type="submit" class="btn-send">🚀 إرسال المقترح / الشكوى بصفة سرية</button>
@@ -162,7 +166,7 @@
     <p style='color:#333; font-size:16px; line-height:1.6; font-weight:500;'>شكراً جزيلاً لك. لقد تم ترحيل وحفظ مقترحك/شكواك صامتاً في صناديق الإدارة السرية والمحمية كلياً بمستوصف شطحة.</p>
 </div>
 
-<!-- آيفريم يستقبل الرد صامتاً ويطلق رسالة النجاح فوراً -->
+<!-- آيفريم مخفي لتلقف الرد صامتاً وإطلاق واجهة الاستجابة الفخمة للمستفيد فوراً -->
 <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) { showSuccessMessage(); }"></iframe>
 
 <script>
